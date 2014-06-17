@@ -1,0 +1,26 @@
+apply plugin: 'java'
+apply plugin: 'groovy'
+
+
+apply plugin: 'idea'
+sourceCompatibility = 1.5
+version = '1.0'
+
+repositories {
+    mavenCentral()
+    maven {
+        url "http://repository.apache.org/snapshots/"
+    }
+}
+
+dependencies {
+    testCompile group: 'junit', name: 'junit', version: '4.11'
+    testCompile 'org.spockframework:spock-core:0.6-groovy-1.8-rc-1'
+    compile 'org.codehaus.groovy:groovy-all:1.8.5'
+
+    compile 'org.apache.commons:commons-imaging:1.0-SNAPSHOT'
+}
+
+task wrapper(type: Wrapper) {
+    gradleVersion = '1.10'
+}
